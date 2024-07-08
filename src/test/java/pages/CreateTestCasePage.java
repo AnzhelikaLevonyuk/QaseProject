@@ -9,7 +9,7 @@ import static com.codeborne.selenide.Selenide.$;
 
 public class CreateTestCasePage {
     @Step("Creating new TestCase")
-    public void createTestCase(TestCase testCase) throws InterruptedException {
+    public void createTestCase(TestCase testCase) {
 
         $("#title").setValue(testCase.getTitle());
         new DropDown("Status").selectOption(testCase.getStatus().getName());

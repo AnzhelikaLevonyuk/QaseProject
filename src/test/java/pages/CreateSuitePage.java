@@ -17,14 +17,10 @@ public class CreateSuitePage extends BasePage {
     }
 
     @Step("Creating new Suite")
-    public void createNewSuite(Suite suite) throws InterruptedException {
+    public void createNewSuite(Suite suite) {
         $("#title").setValue(suite.getSuiteName());
         $(byXpath("//label[text()='Parent suite']/../..//span")).click();
-        try {
-            Thread.sleep(2000);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
+        waiting();
         selectOption(suite.getParentSuite().getName());
         $(byXpath("//label[text()='Description']/../../div//p")).setValue(suite.getDescription());
         $(byXpath("//label[text()='Preconditions']//..//following-sibling::div//p")).setValue(suite.getPreconditions());

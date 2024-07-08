@@ -8,7 +8,7 @@ import utils.TestDataGeneration;
 public class CreateSuiteTest extends BaseTest {
 
     @Test(groups = "ProjectShouldBeCreated")
-    public void createNewSuite() throws InterruptedException {
+    public void createNewSuite() {
         suite = TestDataGeneration.generateSuite();
 
         projectsPage.openProjectInfoPage(project.getName());

@@ -7,7 +7,7 @@ import utils.TestDataGeneration;
 
 public class CreateTestCaseTest extends BaseTest {
     @Test(groups = "ProjectShouldBeCreated")
-    public void createTestCase() throws InterruptedException {
+    public void createTestCase(){
 
         testCase = TestDataGeneration.generateTestCase();
 

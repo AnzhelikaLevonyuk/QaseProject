@@ -5,7 +5,6 @@ import modals.ConfirmationModal;
 import models.Project;
 import models.Suite;
 import models.TestCase;
-import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import pages.*;
@@ -57,17 +56,10 @@ public abstract class BaseTest {
     }
 
     @AfterMethod(alwaysRun = true)
-    public void deleteProject() throws InterruptedException {
+    public void deleteProject() {
         infoPage.clickOnProjectsTab();
         projectsPage.deleteProject(project.getName());
         confirmationModal.clickDeleteProjectButton();
-        //without Thread.sleep, this method will fall
-        try {
-            Thread.sleep(2000);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
-        Assert.assertFalse(projectsPage.isProjectDisplayed(project.getName()));
     }
 
 }

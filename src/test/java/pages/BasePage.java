@@ -13,4 +13,11 @@ public abstract class BasePage {
         $(byText("Projects")).shouldBe(clickable).click();
     }
 
+    public void waiting() {
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+    }
 }
