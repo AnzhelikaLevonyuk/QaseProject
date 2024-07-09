@@ -43,10 +43,14 @@ public abstract class BaseTest {
         createSuitePage = new CreateSuitePage();
 
         open("/");
+    }
+
+    @BeforeMethod(onlyForGroups = "userShouldBeLogin", alwaysRun = true)
+     public void userShouldBeLogin() {
         loginPage.login(PropertyReader.getProperty("username"), PropertyReader.getProperty("password"));
     }
 
-    @BeforeMethod(dependsOnMethods = {"setUp"}, onlyForGroups = "ProjectShouldBeCreated")
+    @BeforeMethod(dependsOnMethods = {"setUp","userShouldBeLogin"}, onlyForGroups = "ProjectShouldBeCreated")
     public void createProject() {
         project = TestDataGeneration.generateProject();
 
@@ -55,8 +59,8 @@ public abstract class BaseTest {
         infoPage.clickOnProjectsTab();
     }
 
-    @AfterMethod(alwaysRun = true)
-    public void deleteProject() {
+    @AfterMethod(onlyForGroups = "projectShouldBeDeleted",alwaysRun = true)
+    public void projectShouldBeDeleted() {
         infoPage.clickOnProjectsTab();
         projectsPage.deleteProject(project.getName());
         confirmationModal.clickDeleteProjectButton();

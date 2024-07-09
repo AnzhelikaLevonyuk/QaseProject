@@ -7,7 +7,7 @@ import utils.TestDataGeneration;
 
 public class CreateProjectTest extends BaseTest {
 
-    @Test
+    @Test(groups = "userShouldBeLogin")
     public void createNewProjectTest() {
         project = TestDataGeneration.generateProject();
 

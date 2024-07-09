@@ -6,7 +6,7 @@ import org.testng.annotations.Test;
 import utils.TestDataGeneration;
 
 public class CreateTestCaseTest extends BaseTest {
-    @Test(groups = "ProjectShouldBeCreated")
+    @Test(groups = {"userShouldBeLogin","ProjectShouldBeCreated","projectShouldBeDeleted"})
     public void createTestCase(){
 
         testCase = TestDataGeneration.generateTestCase();

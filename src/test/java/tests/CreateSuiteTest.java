@@ -7,7 +7,7 @@ import utils.TestDataGeneration;
 
 public class CreateSuiteTest extends BaseTest {
 
-    @Test(groups = "ProjectShouldBeCreated")
+    @Test(groups = {"userShouldBeLogin","ProjectShouldBeCreated","projectShouldBeDeleted"})
     public void createNewSuite() {
         suite = TestDataGeneration.generateSuite();
 
